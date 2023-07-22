@@ -33,5 +33,14 @@ const Loan = superclass => class extends superclass {
       Object.assign(options, { asset })
     )
   }
+  loanData (options = {}) { 
+    validateRequiredParameters({  })
+
+    return this.signRequest(
+      'GET',
+      '/sapi/v1/loan/loanable/data',
+      Object.assign(options, { })
+    )
+  }
 }
 module.exports = Loan
