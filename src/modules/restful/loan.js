@@ -33,8 +33,8 @@ const Loan = superclass => class extends superclass {
       Object.assign(options, { asset })
     )
   }
-  loanData (options = {}) { 
 
+  loanData (options = {}) {
     return this.signRequest(
       'GET',
       '/sapi/v1/loan/loanable/data',
