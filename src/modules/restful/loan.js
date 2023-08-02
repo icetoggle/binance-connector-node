@@ -40,5 +40,12 @@ const Loan = superclass => class extends superclass {
       '/sapi/v1/loan/loanable/data',
       options)
   }
+
+  loanOrders (options = {}) {
+    return this.signRequest(
+      'GET',
+      '/sapi/v1/loan/ongoing/orders',
+      options)
+  }
 }
 module.exports = Loan
