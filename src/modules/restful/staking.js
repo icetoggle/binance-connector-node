@@ -190,6 +190,17 @@ const Staking = superclass => class extends superclass {
       })
     )
   }
+
+  /** 获取活期产品持仓 */
+  simpleEarnPosition (size, options = {}) {
+    return this.signRequest(
+      'GET',
+      '/sapi/v1/simple-earn/flexible/position',
+      Object.assign(options, {
+        size
+      })
+    )
+  }
 }
 
 module.exports = Staking
