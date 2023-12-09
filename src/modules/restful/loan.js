@@ -37,14 +37,33 @@ const Loan = superclass => class extends superclass {
   loanData (options = {}) {
     return this.signRequest(
       'GET',
-      '/sapi/v1/loan/loanable/data',
+      '/sapi/v1/loan/flexible/loanable/data',
       options)
+  }
+
+  loanBorrow (loanCoin, loanAmount, collateralCoin, collateralAmount, options = {}) {
+    return this.signRequest(
+      'POST',
+      '/sapi/v1/loan/flexible/borrow',
+      Object.assign(options, {
+        loanCoin,
+        loanAmount,
+        collateralCoin,
+        collateralAmount
+      }))
+  }
+
+  loanAdjustLtv (loanCoin, collateralCoin, adjustmentAmount, direction, options = {}) {
+    return this.signRequest(
+      'POST',
+      '/sapi/v1/loan/flexible/adjust/ltv',
+      Object.assign(options, { loanCoin, collateralCoin, adjustmentAmount, direction }))
   }
 
   loanOrders (options = {}) {
     return this.signRequest(
       'GET',
-      '/sapi/v1/loan/ongoing/orders',
+      '/sapi/v1/loan/flexible/ongoing/orders',
       options)
   }
 }
