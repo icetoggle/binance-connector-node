@@ -41,15 +41,14 @@ const Loan = superclass => class extends superclass {
       options)
   }
 
-  loanBorrow (loanCoin, loanAmount, collateralCoin, collateralAmount, options = {}) {
+  loanBorrow (loanCoin, loanAmount, collateralCoin, options = {}) {
     return this.signRequest(
       'POST',
       '/sapi/v1/loan/flexible/borrow',
       Object.assign(options, {
         loanCoin,
         loanAmount,
-        collateralCoin,
-        collateralAmount
+        collateralCoin
       }))
   }
 
