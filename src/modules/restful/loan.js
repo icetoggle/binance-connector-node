@@ -65,5 +65,12 @@ const Loan = superclass => class extends superclass {
       '/sapi/v1/loan/flexible/ongoing/orders',
       options)
   }
+
+  loanRepay (loanCoin, collateralCoin, repayAmount, options = {}) {
+    return this.signRequest(
+      'POST',
+      '/sapi/v1/loan/flexible/repay',
+      Object.assign(options, { loanCoin, collateralCoin, repayAmount }))
+  }
 }
 module.exports = Loan
