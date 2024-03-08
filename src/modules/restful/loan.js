@@ -29,7 +29,7 @@ const Loan = superclass => class extends superclass {
 
     return this.signRequest(
       'GET',
-      '/sapi/v1/loan/income',
+      '/sapi/v2/loan/income',
       Object.assign(options, { asset })
     )
   }
@@ -37,14 +37,14 @@ const Loan = superclass => class extends superclass {
   loanData (options = {}) {
     return this.signRequest(
       'GET',
-      '/sapi/v1/loan/flexible/loanable/data',
+      '/sapi/v2/loan/flexible/loanable/data',
       options)
   }
 
   loanBorrow (loanCoin, loanAmount, collateralCoin, options = {}) {
     return this.signRequest(
       'POST',
-      '/sapi/v1/loan/flexible/borrow',
+      '/sapi/v2/loan/flexible/borrow',
       Object.assign(options, {
         loanCoin,
         loanAmount,
@@ -55,21 +55,21 @@ const Loan = superclass => class extends superclass {
   loanAdjustLtv (loanCoin, collateralCoin, adjustmentAmount, direction, options = {}) {
     return this.signRequest(
       'POST',
-      '/sapi/v1/loan/flexible/adjust/ltv',
+      '/sapi/v2/loan/flexible/adjust/ltv',
       Object.assign(options, { loanCoin, collateralCoin, adjustmentAmount, direction }))
   }
 
   loanOrders (options = {}) {
     return this.signRequest(
       'GET',
-      '/sapi/v1/loan/flexible/ongoing/orders',
+      '/sapi/v2/loan/flexible/ongoing/orders',
       options)
   }
 
   loanRepay (loanCoin, collateralCoin, repayAmount, options = {}) {
     return this.signRequest(
       'POST',
-      '/sapi/v1/loan/flexible/repay',
+      '/sapi/v2/loan/flexible/repay',
       Object.assign(options, { loanCoin, collateralCoin, repayAmount }))
   }
 }
