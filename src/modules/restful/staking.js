@@ -202,18 +202,14 @@ const Staking = superclass => class extends superclass {
     )
   }
 
-    /** 获取wbeth 汇率 */
-    wbethRate (startTime, endTime, size, options = {}) {
-      return this.signRequest(
-        'GET',
-        '/sapi/v1/eth-staking/eth/history/rateHistory',
-        Object.assign(options, {
-          startTime,
-          endTime,
-          size
-        })
-      )
-    }
+  /** 获取wbeth 汇率 */
+  wbethRate (options = {}) {
+    return this.signRequest(
+      'GET',
+      '/sapi/v1/eth-staking/eth/history/rateHistory',
+      options
+    )
+  }
 }
 
 module.exports = Staking
