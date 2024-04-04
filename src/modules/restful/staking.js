@@ -210,6 +210,30 @@ const Staking = superclass => class extends superclass {
       options
     )
   }
+
+  /** 申购赚币 **/
+  simpleEarnSubscribe (productId, amount, options = {}) {
+    return this.signRequest(
+      'POST',
+      '/sapi/v1/simple-earn/flexible/subscribe',
+      Object.assign(options, {
+        productId,
+        amount
+      })
+    )
+  }
+
+  /** 赎回赚币 **/
+  simpleEarnRedeem (productId, amount, options = {}) {
+    return this.signRequest(
+      'POST',
+      '/sapi/v1/simple-earn/flexible/redeem',
+      Object.assign(options, {
+        productId,
+        amount
+      })
+    )
+  }
 }
 
 module.exports = Staking
