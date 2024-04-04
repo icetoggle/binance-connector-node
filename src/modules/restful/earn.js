@@ -8,9 +8,9 @@ const { validateRequiredParameters } = require('../../helpers/validation')
  * @param {*} superclass
  */
 const Earn = superclass => class extends superclass {
-
   /** 获取活期产品持仓 */
   simpleEarnPosition (size, options = {}) {
+    validateRequiredParameters({ size })
     return this.signRequest(
       'GET',
       '/sapi/v1/simple-earn/flexible/position',
@@ -31,6 +31,7 @@ const Earn = superclass => class extends superclass {
 
   /** 申购赚币 **/
   simpleEarnSubscribe (productId, amount, options = {}) {
+    validateRequiredParameters({ productId, amount })
     return this.signRequest(
       'POST',
       '/sapi/v1/simple-earn/flexible/subscribe',
@@ -43,6 +44,7 @@ const Earn = superclass => class extends superclass {
 
   /** 赎回赚币 **/
   simpleEarnRedeem (productId, amount, options = {}) {
+    validateRequiredParameters({ productId, amount })
     return this.signRequest(
       'POST',
       '/sapi/v1/simple-earn/flexible/redeem',
