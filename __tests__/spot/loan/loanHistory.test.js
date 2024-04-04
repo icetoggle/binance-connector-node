@@ -19,7 +19,7 @@ describe('#loanHistory', () => {
     const parameters = {
       recvWindow
     }
-    nockMock(`/sapi/v1/loan/income?${buildQueryString({ asset, ...parameters })}`)(mockResponse)
+    nockMock(`/sapi/v2/loan/income?${buildQueryString({ asset, ...parameters })}`)(mockResponse)
 
     return SpotClient.loanHistory(asset, parameters).then(response => {
       expect(response).toBeDefined()
