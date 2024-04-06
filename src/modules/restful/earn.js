@@ -54,6 +54,15 @@ const Earn = superclass => class extends superclass {
       })
     )
   }
+
+  /** 赚币列表 **/
+  simpleEarnList (options = {}) {
+    return this.signRequest(
+      'GET',
+      '/sapi/v1/simple-earn/flexible/product/list',
+      options
+    )
+  }
 }
 
 module.exports = Earn
