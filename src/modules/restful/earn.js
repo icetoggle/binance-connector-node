@@ -59,7 +59,7 @@ const Earn = superclass => class extends superclass {
   simpleEarnList (options = {}) {
     return this.signRequest(
       'GET',
-      '/sapi/v1/simple-earn/flexible/product/list',
+      'GET /sapi/v1/simple-earn/flexible/list',
       options
     )
   }
